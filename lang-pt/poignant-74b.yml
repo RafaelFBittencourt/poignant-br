@@ -1,50 +1,50 @@
-        Variables which start with the American cash sign are global variables.  They can
-        be seen from anywhere in the program, *from inside any scope*.  (Dr. Cham used this
-        variable while snooping around The Originals' computer bay.)
+        Variáveis que começam com o símbolo do dolár são variáveis globais. Elas podem
+        serem vistas em qualquer lugar no programa, *de dentro de algum escopo*. (Dr. Cham usou esta
+        variável enquanto bisbilhotava em volta do gabinete original do computador.)
 
 
-        So why does the *cash sign followed by a colon* represent an array of *all directories
-        where Ruby will search when you try to load a file with @require@*?  The cash sign
-        means "global."  But why the colon?
+        Então porque o símbolo do *dinheiro seguiu por dois pontos* que representa uma array de *todos diretórios
+        onde Ruby buscará quando você tentar carregar um arquivo que @requer@*?  O símbolo do dinheiro
+        significa "global."  Mas porque os dois pontos?
 
 
-        Historically, on many operating systems, a list of directories contains colons which
-        separated each entry.  I like to see the colon as a pair of eyes, scanning the directories
-        for files.  We store our lookout list behind the eyes.
+        Historicamente, em algumas sistemas de operações, uma lista de diretórios contém os dois pontos que
+        separaram cada entrada.  Eu gosto de ver os dois pontos como um par de olhos, rastreando os diretórios
+        por arquivos.  Nós armazenamos nossa lista com cuidado atrás dos olhos.
 
 
-        Here's a few more special global variables:
+        Estão aqui mais algumas variáveis globais especiais:
 
 
         <pre>
-         irb> $"      # The $" variable contains all files which have been loaded with `require'
+         irb> $"      # A $" variável contém todos os arquivos que foram carregados com (`requer')
            => ["irb.rb", "e2mmap.rb", "irb/init.rb", ... "rbconfig.rb"]
-                      # These files are stored somewhere else, but their code is being used
-                      # in this program.  Much like quoting someone else's work -- these are the
-                      # footnotes -- hence the double-quote.
+                      # Estes arquivos estão armazenados em algum outro lugar, mas o código deles está sendo usado
+                      # neste programa.  Bem como a citação de alguma outra pessoa tem o trabalho -- Estas são
+                      # as notas de rodapé -- Daqui colocar entre aspas duplas.
 
-         irb> $0      # The $0 variable contains the running program's filename.
-           => "irb"   # A zero can be considered the beginning of a number count.
-                      # This variable answers the question, "Where did this program begin?"
+         irb> $0      # A variável $0 contém o nome do arquivo do programa em execução.
+           => "irb"   # Um zero pode ser considerado o começo da contagem de um número.
+                      # Esta variável responde a questão, "Onde este programa começou?"
 
-         irb> $*      # The $* variable contains all the arguments passed into a program.
-           => ['--prompt', 'simple']
-                      # This one is easy to remember, if you remember that Ruby methods
-                      # also use the asterisk to capture arguments into an array.
+         irb> $*      # A variável $* contém todos os argumentos passados dentro do programa.
+           => ['--prompt', 'simples']
+                      # Este é fácil de lembrar, pois se você lembrar que os métodos de Ruby
+                      # também usam o asterisco para capturar os argumentos dentro de um array.
 
-         # The $! contains the current exception raised.
-         # The exclamation indicates a state of alarm.  An exception!
+         # O $! contém a exceção atual lançada.
+         # A exclamação indica um estado de alarme.  Uma exceção!
          irb> begin
-         irb>   raise TypeError, "I don't believe this information."
+         irb>   raise TypeError, "Eu não acredito nesta informação."
          irb> rescue
          irb>   p $!
          irb> end
-           => #<TypeError: I don't believe this information.>
+           => #<TypeError: Eu não acredito nesta informação.>	
 
-         # The $@ contains the current backtrace, if an exception was raised.
-         # The backtrace shows were Ruby was _at_ when the exception fired.
+         # O $@ contém a exceção atual na pilha, se uma exceção foi lançada.
+         # A pilha mostra onde Ruby estava quando a exceção disparou.
          irb> begin
-         irb>   raise TypeError, "I don't believe this information."
+         irb>   raise TypeError, "Eu não acredito nesta informação."
          irb> rescue
          irb>   p $@
          irb> end
@@ -53,71 +53,71 @@
         </pre>
 
 
-        "I don't remember you."  Blix looked at the gorilla with great interest.
-        "Are you one of R.K.'s kids or something?"
+        "Eu não me lembro de você."  Blix olhou para o gorila com grande interesse.
+        "Você é uma das crianças de R.K. ou algo assim?"
 
 
-        "Oh, come on!" said Fox Small, holding up a bill with an exclamation mark on it up to the gorilla's nose.
-        "Don't tell me this means _nothing_ to you!  This one is probably _really important_
-        since it has an exclamation on it.  Maybe it pays for emergency stuff!  Hospital
-        bills or something!"
+        "Oh, venha aqui!" disse a Raposa Pequena, segurou uma conta com uma marca de exclamação sobre ela até o nariz do gorila.
+        "Não me diga que isto significa _nada_ para você!  Este é provavelmente _realmente importante_
+        desde que tem uma exclamação nele.  Talvez ele pague pelo material da emergência!  conta do Hospital
+        ou algo!"
 
 
-        *"Yeah, surgery!"* said Fox Tall.
+        *"Sim, cirurgia!"* disse a Raposa Alta.
 
 
-        The gorilla looked at the foxes with disgust from under the brim of his cap.  "No,
-        you're wrong.  You can't pay for surgeries with that."
+        O gorila olhou para as raposas com nojo por baixo da aba do boné dele.  "Não,
+        você está errado.  Você não pode pagar pelas cirurgias com isto."	
 
 
-        "But you see our point," said the small fox.  He grabbed some of the other bills.
-        "And you say this bill _cannot_ pay for surgeries?  Well that sounds like it has
-        a specific _non-surgery-related_ purpose.  Now, the question mark one.  Oh, what would that one be for?"
+        "Mas você vê nosso posição," disse a pequena raposa.  Ele agarrou algumas das outras contas.
+        "E você diz esta conta _não pode_ pagar por cirurgias?  Bem que isso soa como ele tem
+        uma específica proposta de uma _cirurgia sem propósito aparente_.  Agora, o ponto de interrogação.  Oh, o que isto seria?"
 
         
-        "Hey, give me those," the gorilla snatched at the bills over the counter, but 
-        his long thumb kept getting in the way and every time he thought he had grabbed bills, 
-        it turned out he had only grabbed his long thumb.
+        "Ei, dê-me aquelas," o gorila agarrar as contas sobre o contador, mas
+        seu polegar longo manteve-se no caminho e toda  vezes que ele pensou que tinha agarrado as contas, 
+        ele virou-as somente tinha agarrado seu polegar longo.	
 
 
-        "Hey, hey, look, he's mad," said Fox Tall, happily clapping.  "I wonder why.  Did you notice
-        how mad he started getting once we mentioned all these interesting meanings?  *We're on to
-        you!  We figured out your game so fast!"*
+        "Ei, ei, olhe, ele está louco," disse a Raposa Alta, felizmente aplaudindo.  "Eu quero saber por que você avisou
+        como um louco uma vez que nós mencionamos todos estes significados interesantes?  *Nós estamos 
+        em cima de você!  Nós compreendemos seu jogo muito rápido!"*
 
 
-        "We totally did!" said Fox Small, one of his elbows caught in the grip of the gorilla,
-        the other arm waving a bill that featured an underscore.
-        "This one's for buying floor supplies, maybe even big rolls of tile and linoleum."
+        "Nós fizemos totalmente!" disse a Raposa Pequena, um de seus cotovelos pegou um apoiou no gorila,
+        o outro braço acenando uma conta que caracterizou um (underscore).
+        "Este é para comprar materiais pro chão, talvez mesmo uns grandes rolos de telhas e um tapete impermeável."
 
 
-        "See," said Fox Tall, working to pry the gorilla's fingers free, "we just have to figure out which is more expensive:
-        surgery or linoleum!  This is _so easy!"_
+        "Veja," disse a Raposa Alta, trabalhando para erguer e deixar livre os dedos do gorila, "nós só temos que calcular qual é o mais caro:
+        cirurgia ou um tapete impermeável!  Isto é _tão fácil!"_	   
+        
+		
+        *"NÃO ISTO NÃO É!"* gritou o gorila, puxou com força a raposa menor e bateu na
+        raposa com as suas palmas.  *"VOCÊ NÃO SABE NADA SOBRE DINHEIRO MACACO!!  VOCÊ NEM SEQUER _TEM_
+        SEU PRÓPRIO TIPO DE DINHEIRO!!"*	
 
 
-        *"NO IT'S NOT!"* yelled the gorilla, yanking at the smaller fox and battering the
-        fox with his palms.  *"YOU DON'T KNOW ANYTHING ABOUT MONKEY MONEY!!  YOU DON'T EVEN _HAVE_
-        YOUR OWN KINDS OF MONEY!!"*
+        "Nós podemos _facilmente_ ter nosso próprio tipo de dinheiro!" disse a Raposa Alta, pegando o chapéu do chimpanzé
+        e lançando para atrás do quarto, onde ele navegou atrás de uma parede de segurança
+        do depósito de caixas.  "E -- _seu chapéu está fora daqui!_"	
+		
+
+        "Vamos, devolva as contas dele," disse Blix, acenando os braços dele incontrolavelmente
+        do lado de fora.  "Nós podemos realmente aproveitar a ajuda deste cara."
+
+		
+        "Parem de me bater!" gritou a raposa pequena.  "Eu quase calculei o todo
+        com os pontos sobre ele!!"	
 
 
-        "We could _easily_ have our own kinds of money!" said Fox Tall, taking the chimp's
-        hat and tossing it to the back of the room, where it sailed behind a wall of safety
-        deposit boxes.  "And -- _your hat is outta here!_"
+        Repentinamente, com grande precisão e sem aviso, a Raposa Alta agarrou o nariz do macaco
+        e bateu o rosto dele para abaixo contra o contador.  As canetas e o tinteiro bateram sobre a superfície
+        e "Bam!" disse a raposa.  Os olhos do gorila dilataram enquanto cochilava
+        como os seus braços... então o pescoço dele... então a cabeça dele escorregou no chão atrás do contador.
 
-
-        "Come on, give him back his bills," said Blix, waving his arms helplessly from the
-        sidelines.  "We could really use this guy's help."
-
-
-        "Stop hitting me!" screamed the littlest fox.  "I've almost figured out this one
-        with the dots on it!!"
-
-
-        Suddenly, with great precision and without warning, Fox Tall grabbed the monkey's nose
-        and slammed his face down against the counter.  The pens and inkpads on its surface
-        rattled and "Bam!" said the fox.  The gorilla's eyes spun sleepily
-        as his arms... then his neck... then his head slithered to the floor behind the counter.
-
-
-        Here are a few more global variables you might care to use:
-
-
+		
+        Aqui está mais algumas variáveis globais que você pode tomar cuidado ao usar:
+		
+		
