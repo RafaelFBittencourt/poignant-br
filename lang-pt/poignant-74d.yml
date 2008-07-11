@@ -1,17 +1,17 @@
-        <pre>
-         irb> %w{ruby --help}
-           => ["ruby", "--help"]
+﻿        <pre>
+         irb> %w{ruby --ajuda}
+           => ["ruby", "--ajuda"]
          irb> %x{ruby --help}
            => "Usage: ruby [switches] [--] [programfile] [arguments] ..."
         </pre>
 
 
-        My favorite is the @%Q@ hat, which can also be written as just @%@.  This acts just like a double-quoted string,
-        but looks nice when used with strings that run-on for many lines.  Like, say you're adding a new method with @eval@.
+        Meu favorito é o chapéu @%Q@, o qual pode também ser escrito como apenas @%@.  Isto age exatamente como uma string com aspas duplas,
+        mas parece legal quando usado com strings que correm por muitas linhas.  Tal como, digamos você está dicionando um novo método com @eval@.
 
 
         <pre>
-         m = "bats!"
+         m = "morcegos!"
          eval %{
            def #{ m }
              puts "{" * 100
@@ -20,107 +20,108 @@
         </pre>
 
 
-        Just like a double-quoted string, you can use the string interpolation lilypads inside.
+        Exatamente como uma string com aspas duplas, você pode usar a interpolação de string dentro de um absorvente.
 
 
         !i/wixl-15.png(Cloneberries: The More You Eat, The More *You*.)!
 
 
-        Blixy wagged his head.  "Oh, dear me."
+        Blixy sacudiu sua cabeça.  "Oh, meu querido."
 
 
-        "Egads! My hand is pregnant," said Fox Tall, watching the little fox embryo slide about in his palm.
+        "Poxa! Minha mão está grávida," disse a Raposa Alta, vendo o embrião da pequena raposa deslizando na sua palma.
 
 
-        "They are good berries, though," said Blix.  "The wine they make from these berries
-        will make ya grow a few eyeballs in your teeth.  But no more than that."
+        "Eles são bons frutos, embora," disse Blix.  "O vinho que fazem apartir destes frutos
+        fará você crescer alguns globos oculares em seus dentes.  Mas não mais do que isso."
 
 
-        "Ah, pain!" yelled Fox Small, as his miniature squeezed out through the pores in his scalp.  But soon he
-        was cradling his little self and murmuring lullablies.  _Nevermore, nevermore, sweetly sang the
-        nightingale.  Winking starlight, sleeping still, whilst perched on a Sycamore stump._
+        "Ah, dor!" gritou a Raposa Pequena, como sua miniatura espremida através dos poros em seu couro cabeludo.  Mas logo ele 
+        estava embalando seu ser pequeno e murmúrando canções de ninar.  _Nunca mais, Nunca mais, de forma doce cantou
+        o rouxinol.  Piscando a luz das estrelas, ainda dormindo, enquanto que empoleirado em um pedaço do tronco do sicômoro._		
 
 
-        Making duplicates of Ruby objects is no more than a berry's worth of code.
-
-
-        <pre>
-         irb> tree = [:berry, :berry, :berry]
-           => [:berry, :berry, :berry]
-         irb> treechild = tree.clone
-           => [:berry, :berry, :berry]
-        </pre>
-
-
-        The @clone@ method makes an exact copy of a Ruby object.  How does this differ from regular
-        assignment?
+        Fazer objetos do Ruby duplicados nada mais é do que um fruto do valor do código.
 
 
         <pre>
-         irb> tree_charles_william_iii = tree
-           => [:berry, :berry, :berry]
+         irb> arvore = [:fruto, :fruto, :fruto]
+           => [:fruto, :fruto, :fruto]
+         irb> arvorefilho = arvore.clone
+           => [:fruto, :fruto, :fruto]
+        </pre>
+      
+
+        O método @clone@ faz uma cópia exata de um objeto do Ruby.  Como isto diferencia-se da atribuição 
+        regular?		
+
+		
+        <pre>
+         irb> arvore_charles_william_iii = arvore
+           => [:fruto, :fruto, :fruto]
         </pre>
 
 
-        Assigning object to variables only creates more nicknames.  The above Array can be called @tree_charles_william_iii@
-        now.  Or the shorter @tree@.  The same object, but different names.
+        Atribuir objeto às variáveis somente cria mais apelidos.  O Array acima pode ser chamado de @arvore_charles_william_iii@ 
+        agora.  Ou a @tree@ pequena.  O mesmo objeto, mas com nomes diferentes.		
 
 
-        However, a clone is a copy of an object.  You can modify it without affecting the original.
+        Entretanto, um clone é uma cópia de um objeto.  Você pode modificá-lo sem afetar o original.
 
 
         <pre>
-         irb> treechild << 'flower'
-           => [:berry, :berry, :berry, 'flower']
-         irb> tree
-           => [:berry, :berry, :berry]
+         irb> arvorefilho << 'flor'
+           => [:fruto, :fruto, :fruto, 'flor']
+         irb> arvore
+           => [:fruto, :fruto, :fruto]
         </pre>
 
 
-        The @clone@ method doesn't make copies of everything attached to the object, though.  In the array above, only the
-        array is copied, not all the symbols and strings inside.
+        O método @clone@ não faz cópias de tudo que está preso ao objeto de qualquer forma.  No array acima, somente o 
+        array é copiado, e não todos os símbolos e strings para o seu interior.		
+		
 
-
-        You may also see the @dup@ method used to copy objects.  The @dup@ method makes copies which aren't as exact.  For example,
-        there are objects in Ruby which are "frozen" and can't be altered.  If you @clone@ the object, you get an exact copy which
-        is also frozen.  If you use @dup@, you get an unfrozen copy that you can change if you like.
-
-
-        The @clone@ method also copies the metaclass of an object, whereas @dup@ does not.
+        Você pode também ver o método @dup@ usado para copiar objetos.  O método @dup@ faz cópias que não são tão exatas.  Por exemplo, 
+        existem os objetos no Ruby que são "congelados" e não podem ser alterados.  Se você @clone@ o objeto, você recebe uma cópia exata que 
+        está também congelado.  Se você usa o @dup@, você recebe uma cópia descongelada que você pode mudar se você quiser.		
+		
+		
+        O método @clone@ também copia as metaclasses de um objeto, enquanto que o @dup@ não faz.		
 
 
         <pre>
          irb> o = Object.new
          irb> class << o
-         irb>   def nevermore; :nevermore; end
+         irb>   def nuncamais; :nuncamais; end
          irb> end
 
-         irb> o.clone.nevermore
-           => :nevermore
-         irb> o.dup.nevermore
-         # NoMethodError: undefined method `nevermore' for #<Object:0xb7d4a484>
+         irb> o.clone.nuncamais
+           => :nuncamais
+         irb> o.dup.nuncamais
+         # NoMethodError: undefined method `nuncamais' for #<Object:0xb7d4a484>
          #         from (irb):7
          </pre>
 
-
-        You don't always need to make copies of objects, though, since many methods like @collect@ and @gsub@
-        and @format@ make copies for you as part of their work.
+	
+        Você não precisa sempre fazer cópias de objetos, embora, muitos métodos como @collect@ e @gsub@ 
+        e o @format@ fazem cópias para você como parte de seu trabalho.
 
 
         !i/wixl-4.gif(Deer of the Smoky Pink Puffing.)!
 
-
-        Over the hills and down the valleys, they ran through the grass where the Deer of the Smoky Pink
-        Puffing roam.  The sun was obscured by the lumbering pink clouds, emblazened with deer language,
-        tinting the horizon a gradient of grapefruit and secreting a glow over the meadow.  The clouds
-        slid past each other, some bobbing upwards, destined for Canadian relatives.  Others landing a
-        readable distance from a recipient's hooves.
-
-
-        "Let's stop!  _Please!_" yelled Fox Tall.  "You can't expect us to run in this *unbreathable fluff!*"
+	
+        Sobre as colinas e os vales em abaixo, eles correram através da grama onde o Veado do Esfumaçado Sopro Cor-de-Rosa 
+        que vagava. O sol foi obscurecido pelo acumulo de nuvens cor-de-rosa, incediada com a língua dos veados, 
+        colorindo o horizonte com um gradiente cor toranja e produzindo luz sobre os prados.  As nuvens 
+        deslizaram uma após a outra, algumas flutuando para o alto, destinadas aos parentes canadenses.  Outras aterrissarem
+        numa distância legível dos cascos recipientes.
 
 
-        "Why are you yelling?" said Blix, as a thin stratus telegram wafted behind his legs.  "You don't
-        need to raise your voice above a whisper.  These long skinny clouds are usually just a mumble or
-        a sigh.  They may not even make it all the way."
+        "Vamos parar!  _Por favor! _" gritou a Raposa Alta.  "Você não pode esperar que nós vamos correr nesta *penugem que não nos permite respirar!*"
+		
 
+        "Por que você está gritando?" disse Blix, como um telegrama numa camada de nuvens fina flutuou atrás de suas pernas.  "Você não 
+        precisa levantar sua voz mais do que um sussurro.  Estas nuvens compridas e magras são geralmente apenas um mumúrio ou 
+        um suspiro.  Elas não podem sequer fazer todo o caminho."
+		
+		
